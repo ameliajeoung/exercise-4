@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4</title>
+    <style>
+    body{
+        transition: background 2.5s ease;
+    }
+    @media (max-width: 599px) {
+        body{
+           background: linear-gradient(#addfbc, #f6e6bd);
+           height: 600px;
+        }
+        img {
+            animation: rotate 3s infinite linear;
+            height: 150px;
+            display: block;
+            margin: 50% auto;
+            filter: drop-shadow(0px 0px 30px rgb(250, 255, 234));
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #text1{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #9ac190;
+            display: flex;
+            justify-content: center;
+        }
+        #text2, #text3, .two{
+            display: none;
+        }
+        .loader{
+            display: none;
+        }
+        #miffy-container{
+            display: none;
+        }
+    }
+    @media (min-width: 600px) and (max-width: 899px) {
+        body{
+            background-color: brown;
+            height: 600px;
+        }
+        #text1, #text3, #animated-div, .loader, #miffy-container, #beep4{
+            display: none;
+        }
+        .blurp{
+            height: 100vh;
+            background-color: rgb(53, 40, 46);
+            margin: 30% auto;
+            animation: fade 6s infinite;
+        }
+        p{
+            position: absolute;
+            color: brown;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes fade {
+            0%{
+                opacity: 0;
+                transform: scale(3);
+                width: 20px;
+            }
+            50% {
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+                transform: scale(10);
+                width: 300px;
+            }
+        }
+    }
+    @media (min-width: 900px) and (max-width: 1299px) {
+        body{
+            background-color: #fcd5ce;
+            margin: 0;
+            display: flex;
+            justify-content: center; 
+        }
+        :root {
+            --point-color: #6d6875;
+            --size: 5px;
+        }
+        #text1, #text2, #animated-div, .beep4, .two{
+            display: none;
+        }
+        img{
+            animation: bounce 2s infinite ease-in-out;
+        }
+        #miffy{
+            margin-top: 15%;
+            position:relative;
+            z-index: 2;
+        }
+        #miffy-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .miffy-ball{
+            position: absolute;
+            z-index: 1;
+            animation: zoom 2s infinite alternate-reverse linear;
+            border-radius: 50%;
+            background-color: #f7c0ca;
+            height:100px;
+            width: 100px;
+        }
+        .miffy-ball2{
+            position: absolute;
+            z-index: 1;
+            animation: zoom 3s infinite alternate-reverse linear;
+            border-radius: 50%;
+            background-color: #e5adb8;
+            height:100px;
+            width: 100px;
+        }
+        .miffy-ball3{
+            position: absolute;
+            z-index: 1;
+            animation: zoom 4s infinite alternate-reverse linear;
+            border-radius: 50%;
+            background-color: #f3dfe3;
+            height:100px;
+            width: 100px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-30); }
+            50% { transform: translateY(-70px); }
+        }
+        @keyframes zoom {
+            0% { transform: translateX(-650px); }
+            100% { transform: translateX(calc(100vw + 30px)); }
+        }
+
+        .loader {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0; left: 0;
+            display: flex;
+            align-items: center;
+            align-content: center; 
+            justify-content: center;  
+            z-index: 100000;
+            margin-top: 30%;
+        }
+        .loader__element {
+            border-radius: 100%;
+            border: var(--size) solid var(--point-color);
+            margin: calc(var(--size)*2);
+        }
+        .loader__element:nth-child(1) {
+            animation: preloader .6s ease-in-out alternate infinite;
+        }
+        .loader__element:nth-child(2) {
+            animation: preloader .6s ease-in-out alternate .2s infinite;
+        }
+        .loader__element:nth-child(3) {
+            animation: preloader .6s ease-in-out alternate .4s infinite;
+        }
+        @keyframes preloader {
+            100% { transform: scale(2); }
+        }
+    }  
+    @media (min-width: 1300px) {
+        body{
+            animation: bg 5s infinite alternate-reverse linear;
+        }
+        #text1, #text2, img, #miffy-container, .two{
+            display: none;
+        }
+        
+        @keyframes bg {
+            0% {background-color:aliceblue}
+            100% {background-color: coral;}
+        }
+        @keyframes zoomy {
+        0% {
+            transform: translateX(-10vw);
+            background-color: #9ac190;
+            border-radius: 0%;
+        }
+        100% {
+            transform: translateX(100vw);
+            background-color: #f3dfe3;
+            border-radius: 50%;
+        }
+        }
+        .screen4 {
+            animation: zoomy 3s infinite alternate-reverse ease-in-out;
+            margin-bottom: 2vh;
+            height: 15vh;
+            width: 150px;
+        }
+        .screen5 {
+            animation: zoomy 3s infinite alternate-reverse ease-in-out;
+            animation-delay: .2s;
+
+            margin-bottom: 2vh;
+            height: 15vh;
+            width: 150px;
+        }
+        .screen6 {
+            animation: zoomy 3s infinite alternate-reverse ease-in-out;
+            animation-delay: .4s;
+
+            margin-bottom: 2vh;
+            height: 15vh;
+            width: 150px;
+        }
+        .screen7 {
+            animation: zoomy 3s infinite alternate-reverse ease-in-out;
+            animation-delay: .6s;
+
+            margin-bottom: 2vh;
+            height: 15vh;
+            width: 150px;
+        }
+        .screen8 {
+            animation: zoomy 3s infinite alternate-reverse ease-in-out;
+            animation-delay: .8s;
+
+            margin-bottom: 2vh;
+            height: 15vh;
+            width: 150px;
+        }
+        .beep4{
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
+            height: 100vh;
+            margin-top: 10vh;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="animated-div">
+        <img class="orchid" src="orchid.png">
+    </div>
+    
+    <div id="text1"> the orchid has blessed you!</div>
+
+    <div class="two">
+        <div class="blurp"></div>
+        <p>hello ^_^</p>
+    </div>
+
+    <div class="loader">
+        <span class="loader__element"></span>
+        <span class="loader__element"></span>
+        <span class="loader__element"></span>
+    </div>
+
+    <div id="miffy-container">
+    <div id="miffy">
+        <img src="miffy.png">
+    </div>
+    <div class="miffy-ball"></div>
+    <div class="miffy-ball2"></div>
+    <div class="miffy-ball3"></div>
+    </div>
+
+    <div class="beep4">
+    <div class="screen4"></div>
+    <div class="screen5"></div>
+    <div class="screen6"></div>
+    <div class="screen7"></div>
+    <div class="screen8"></div>
+    </div>
+</body>
+</html>
